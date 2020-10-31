@@ -85,6 +85,7 @@ class _SignUpFormState extends State<SignUpForm> {
          city:  cityController.text,
          state: stateController.text,
          dateOfBirth: selectedDate,
+         phoneNumber: phoneController.text,
        );
 
        setState(() {
@@ -169,6 +170,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
                   CustomTextField(
                     label: "City",
+                    controller: cityController,
                     validator: (value){
                       if(value.isEmpty) return "Field should not be empty";
                       return null;

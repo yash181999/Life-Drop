@@ -12,8 +12,10 @@ class _MyRequestsState extends State<MyRequests> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
+          height: 150,
           child: Card(
             child: Container(
+              padding: EdgeInsets.all(10),
               child: Column(
                 children: [
                   Row(
@@ -95,12 +97,6 @@ class _MyRequestsState extends State<MyRequests> {
 
                     ],
                   ),
-
-
-
-
-
-
 
 
                 ],
