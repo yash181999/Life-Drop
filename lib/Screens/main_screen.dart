@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:versionbeta3/color/color.dart';
 
 
 class MainScreen extends StatefulWidget {
@@ -14,6 +15,10 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: white,
+      ),
+    );
   }
 }

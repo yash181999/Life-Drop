@@ -35,12 +35,9 @@ class _SignUpState extends State<SignUp> {
             await _auth.registerWithEmailAndPassword(
                 email: emailTEC.text,password: passwordTEC.text)
                 .then((value) {
-
-
               Navigator.pushReplacement(context, MaterialPageRoute(
                 builder:   (context) => MainScreen(),
               ));
-
             });
 
          }
@@ -186,9 +183,6 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
               ),
-
-
-
             ],
 
           ),
