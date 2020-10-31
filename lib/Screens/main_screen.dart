@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -6,8 +7,12 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+
+  final Location = TextEditingController();
+  String Blood_Group;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Container();
   }
 }

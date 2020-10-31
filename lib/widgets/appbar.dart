@@ -8,16 +8,18 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      elevation: 0,
-      backgroundColor: white,
-      title: Text(
-        titleText,
-        style: TextStyle(
-          fontSize: 22,
-          color: black,
-          fontFamily: 'sf_pro_bold',
+        elevation: 0,
+        backgroundColor: white,
+        title: Text(
+          titleText,
+          style: TextStyle(
+            fontSize: 22,
+            color: black,
+            fontFamily: 'sf_pro_bold',
+          ),
         ),
-      ),
-    );
+      );
+
+
   }
 }

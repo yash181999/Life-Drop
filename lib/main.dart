@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'Login/login.dart';
-import 'color/color.dart';
-
+import 'package:versionbeta3/Screens/main_screen.dart';
+import 'package:versionbeta3/Screens/request_screen.dart';
+import 'package:versionbeta3/Screens/search_screen.dart';
 void main() {
   runApp(MyApp());
 }
@@ -13,14 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
 
-        primaryColor: red,
+        primarySwatch: Colors.blue,
       ),
-      home: Login(),
+      home: Search_screen(),
     );
   }
 }
-
