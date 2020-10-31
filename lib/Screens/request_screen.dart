@@ -84,7 +84,14 @@ class _Request_screenState extends State<Request_screen> {
                       onTap : () {
                         setState(() {
                           Blood_Group = "A+";
-                          color1 = red;
+                           color1 = red;
+                           color2 = Colors.white;
+                           color3 = Colors.white;
+                          color4 = Colors.white;
+                           color5 = Colors.white;
+                           color6 = Colors.white;
+                           color7 = Colors.white;
+                           color8 = Colors.white;
                         });
                       },
                       child: Container(
@@ -105,7 +112,14 @@ class _Request_screenState extends State<Request_screen> {
                       onTap: () {
                         setState(() {
                           Blood_Group = "A-";
-                          color2 = red;
+                           color1 = Colors.white;
+                           color2 = red;
+                           color3 = Colors.white;
+                           color4 = Colors.white;
+                           color5 = Colors.white;
+                           color6 = Colors.white;
+                           color7 = Colors.white;
+                           color8 = Colors.white;
                         });
                       },
                       child: Container(
@@ -126,7 +140,14 @@ class _Request_screenState extends State<Request_screen> {
                       onTap: () {
                         setState(() {
                           Blood_Group = "B-";
-                          color3 = red;
+                           color1 = Colors.white;
+                           color2 = Colors.white;
+                           color3 = red;
+                           color4 = Colors.white;
+                           color5 = Colors.white;
+                           color6 = Colors.white;
+                           color7 = Colors.white;
+                           color8 = Colors.white;
                         });
                       },
                       child: Container(
@@ -147,7 +168,14 @@ class _Request_screenState extends State<Request_screen> {
                       onTap: () {
                         setState(() {
                           Blood_Group = "O+";
-                          color4 = red;
+                           color1 = Colors.white;
+                           color2 = Colors.white;
+                           color3 = Colors.white;
+                           color4 = red;
+                           color5 = Colors.white;
+                           color6 = Colors.white;
+                           color7 = Colors.white;
+                           color8 = Colors.white;
                         });
                       },
                       child: Container(
@@ -168,7 +196,14 @@ class _Request_screenState extends State<Request_screen> {
                       onTap: () {
                         setState(() {
                           Blood_Group = "O-";
-                          color5 = red;
+                           color1 = Colors.white;
+                           color2 = Colors.white;
+                           color3 = Colors.white;
+                           color4 = Colors.white;
+                           color5 = red;
+                           color6 = Colors.white;
+                           color7 = Colors.white;
+                           color8 = Colors.white;
                         });
                       },
                       child: Container(
@@ -210,7 +245,14 @@ class _Request_screenState extends State<Request_screen> {
                       onTap :() {
                         setState(() {
                           Blood_Group = "AB+";
-                          color6 = red;
+                           color1 = Colors.white;
+                           color2 = Colors.white;
+                           color3 = Colors.white;
+                           color4 = Colors.white;
+                           color5 = Colors.white;
+                           color6 = red;
+                           color7 = Colors.white;
+                           color8 = Colors.white;
                         });
                       },
                       child: Container(
@@ -231,7 +273,14 @@ class _Request_screenState extends State<Request_screen> {
                       onTap: () {
                         setState(() {
                           Blood_Group = "B+";
-                          color7 = red;
+                           color1 = Colors.white;
+                           color2 = Colors.white;
+                           color3 = Colors.white;
+                           color4 = Colors.white;
+                           color5 = Colors.white;
+                           color6 = Colors.white;
+                           color7 = red;
+                           color8 = Colors.white;
                         });
                       },
                       child: Container(
@@ -251,7 +300,14 @@ class _Request_screenState extends State<Request_screen> {
                     InkWell(
                       onTap: () {
                         Blood_Group = "AB-";
-                        color8 = red;
+                         color1 = Colors.white;
+                         color2 = Colors.white;
+                         color3 = Colors.white;
+                         color4 = Colors.white;
+                         color5 = Colors.white;
+                         color6 = Colors.white;
+                         color7 = Colors.white;
+                         color8 = red;
                       },
                       child: Container(
                         width: 66.0,
@@ -266,6 +322,8 @@ class _Request_screenState extends State<Request_screen> {
                         ),
                       ),
                     ),
+
+
                     Container(
                       width: 66.0,
                       color: Colors.grey,

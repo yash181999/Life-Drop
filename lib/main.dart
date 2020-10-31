@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:versionbeta3/Login/signup_form.dart';
-import 'package:versionbeta3/Login/uploadDocument.dart';
 import 'package:versionbeta3/Screens/main_screen.dart';
-import 'package:versionbeta3/color/color.dart';
-
-import 'Screens/all_requests/all_requests.dart';
+import 'package:versionbeta3/Screens/request_screen.dart';
+import 'package:versionbeta3/Screens/search_screen.dart';
 void main() {
   runApp(MyApp());
 }
@@ -18,9 +15,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
 
-        primaryColor: red,
+        primarySwatch: Colors.blue,
       ),
-      home: AllRequests(),
+      home: Search_screen(),
     );
   }
 }
