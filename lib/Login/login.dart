@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:versionbeta3/Login/signup.dart';
+import 'package:versionbeta3/Screens/main_screen.dart';
 import 'package:versionbeta3/color/color.dart';
+import 'package:versionbeta3/database/auth.dart';
+import 'package:versionbeta3/database/firestore.dart';
 import 'package:versionbeta3/widgets/appbar.dart';
 import 'package:versionbeta3/widgets/customButton.dart';
 import 'package:versionbeta3/widgets/textField.dart';
@@ -14,8 +17,45 @@ class _LoginState extends State<Login> {
 
   bool showPassword = false;
 
-  forgotPassword(){
+  AuthService _auth = new AuthService();
+  DatabaseService databaseService = new DatabaseService();
+  final emailTEC = TextEditingController();
+  final passwordTEC = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  bool clickedLoginBtn = false;
 
+  forgotPassword(){
+  }
+
+  login()  async{
+    if(_formKey.currentState.validate()) {
+
+      setState(() {
+        clickedLoginBtn = true;
+      });
+
+      dynamic result = await _auth.signInUserWithEmailAndPassword(emailTEC.text, passwordTEC.text);
+
+
+      if(result!=null) {
+        dynamic userData = await databaseService.getUserDataFromFireStore(userId: result.toString());
+
+        saveDataToSharedPrefStorage(userName: userData['name'], userId: result.toString(), profilePhoto: userData['profilePic']);
+
+
+        Navigator.pushReplacement(context,  MaterialPageRoute(
+            builder:  (context) => MainScreen()
+        ));
+      }
+
+    }
+  }
+
+  void saveDataToSharedPrefStorage({String userName, String userId, String profilePhoto}) async {
+    await AuthService.saveUserIdSharedPref(userId);
+    await  AuthService.saveUserNameSharedPref(userName);
+    await AuthService.saveUserLoggedInSharedPref(true);
+    await AuthService.saveProfilePhotoSharedPref(profilePhoto);
   }
 
   @override
@@ -38,6 +78,7 @@ class _LoginState extends State<Login> {
       body: Container(
         padding: EdgeInsets.all(10),
         child: Form(
+          key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -57,6 +98,16 @@ class _LoginState extends State<Login> {
               CustomTextField(
                 label : "Email/Phone",
                 hint : "Email/Phone",
+                controller: emailTEC,
+                validator: (val) {
+                  if(val.isEmpty) {
+                    return "Email is empty";
+                  }
+                  if(!RegExp(r"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$").hasMatch(val)) {
+                    return "Invalid Email";
+                  }
+                  return null;
+                },
                 type: TextInputType.emailAddress,
               ),
 
@@ -64,6 +115,18 @@ class _LoginState extends State<Login> {
               CustomTextField(
                 label: "Password",
                 hint: "Password",
+                controller: passwordTEC,
+                validator: (val) {
+
+                  if(val.isEmpty) {
+                    return "Password Is Empty";
+                  }
+                  if(val.length < 8) {
+                    return 'Password must of at least 6 characters';
+                  }
+                  return null;
+
+                },
                 type: TextInputType.visiblePassword,
                 showHideText : showPassword ? true : false,
                 icon: GestureDetector(
@@ -95,14 +158,16 @@ class _LoginState extends State<Login> {
                 height: 30,
               ),
 
-              CustomButton(
+             clickedLoginBtn == false ?  CustomButton(
 
-                onPressed: (){},
+                onPressed: (){
+                  login();
+                },
                 label: "LOGIN",
                 labelColor: white,
                 color: red,
 
-              ),
+              ) : CircularProgressIndicator(),
 
 
               SizedBox(height: 30,),
