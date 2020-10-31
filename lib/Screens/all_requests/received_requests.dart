@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:versionbeta3/color/color.dart';
 import 'package:versionbeta3/database/auth.dart';
 
+import '../chat.dart';
+
 class ReceivedRequests extends StatefulWidget {
   @override
   _ReceivedRequestsState createState() => _ReceivedRequestsState();
@@ -124,7 +126,11 @@ class _ReceivedRequestsState extends State<ReceivedRequests> {
                                     ),
                                   ): RaisedButton(
                                     color: Colors.green,
-                                    onPressed: (){},
+                                    onPressed: (){
+                                      Navigator.push(context, MaterialPageRoute(
+                                        builder: (context)=> Chat(docId : doc['sendByUserId'],userId : userId, name :  doc['namePatient'])
+                                      ));
+                                    },
                                     child: Text("Chat",style: TextStyle(
                                       color: white,
                                     ),),

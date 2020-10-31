@@ -35,8 +35,6 @@ class _ListOfBloodDonarsState extends State<ListOfBloodDonars> {
          "timeStamp" : Timestamp.now(),
         "bloodGroup" : widget.bloodGroup,
         "status" : "notAccepted",
-
-
     });
 
   }

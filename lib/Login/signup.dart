@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:versionbeta3/Login/signup_form.dart';
 import 'package:versionbeta3/Screens/main_screen.dart';
 import 'package:versionbeta3/color/color.dart';
 import 'package:versionbeta3/database/auth.dart';
@@ -36,7 +37,7 @@ class _SignUpState extends State<SignUp> {
                 email: emailTEC.text,password: passwordTEC.text)
                 .then((value) {
               Navigator.pushReplacement(context, MaterialPageRoute(
-                builder:   (context) => MainScreen(),
+                builder:   (context) => SignUpForm(),
               ));
             });
 

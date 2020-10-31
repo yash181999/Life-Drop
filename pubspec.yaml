@@ -43,6 +43,7 @@ dependencies:
   pin_code_fields: ^5.2.0
   image_picker:
   keyboard_visibility: ^0.5.6
+  bubble :
 
 
 
