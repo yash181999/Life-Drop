@@ -22,8 +22,12 @@ class _Search_screenState extends State<Search_screen> {
   Color color6 = Colors.white;
   Color color7 = Colors.white;
   Color color8 = Colors.white;
+  Color colorBlood = red;
+  Color colorPlasma = Colors.white;
+
   final location = TextEditingController();
   String Blood_Group;
+  String bloodOrPlasma = "Blood";
   final date = TextEditingController();
   final time = TextEditingController();
   final bloodUnit = TextEditingController();
@@ -121,21 +125,68 @@ class _Search_screenState extends State<Search_screen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 5,),
-                Text(
-                    "Search for blood donor around you",
-                    style: TextStyle(
-                      color: Colors.grey,
-                    )
-                ),
+                SizedBox(height: 20,),
 
-                SizedBox(height: 25,),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 60,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      boxShadow: [BoxShadow(
+                        color: Colors.black38,
+                        blurRadius: 3,
+                        offset: Offset(0, 3),
+                      )]
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                             setState(() {
+                               bloodOrPlasma = "Blood";
+                               colorBlood = red;
+                               colorPlasma = white;
+                             });
+                           },
+                        child: Container(
+                          color: colorBlood,
+                          width: 165,
+                          child: Center(
+                            child: Text(
+                              "Blood",
+                               style: TextStyle(
+                                 fontSize: 20
+                               ),
+                            ),
+                          ),
+                        ),
+                      ),
 
-                Text(
-                    "Choose Blood Group",
-                    style: TextStyle(
-                      color: Colors.grey,
-                    )
+                      InkWell(
+                        onTap: () {
+                          setState(() {
+                            bloodOrPlasma = "Plasma";
+                            colorPlasma = red;
+                            colorBlood = white;
+                          });
+                        },
+                        child: Container(
+                          color: colorPlasma,
+                          width: 165,
+                          height: MediaQuery.of(context).size.width,
+                          child: Center(
+                            child: Text(
+                              "Plasma",
+                              style: TextStyle(
+                                fontSize: 20
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
 
                 SizedBox(height: 20,),
@@ -416,15 +467,6 @@ class _Search_screenState extends State<Search_screen> {
 
                 SizedBox(height: 20,),
 
-                Text(
-                  "Location",
-                  style: TextStyle(
-                      color: Colors.grey
-                  ),
-                ),
-
-                SizedBox(height: 20,),
-
                 Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
@@ -457,11 +499,11 @@ class _Search_screenState extends State<Search_screen> {
                   return value.isEmpty ? "Field should not be empty" : null;
                 },),
 
-                SizedBox(height: 20,),
+                SizedBox(height: 10,),
 
-                CustomTextField(hint: "Blood Unit",type: TextInputType.number, controller: bloodUnit, validator: (value) {
+                (bloodOrPlasma == "Blood") ? CustomTextField(hint: "Blood Unit",type: TextInputType.number, controller: bloodUnit, validator: (value) {
                   return value.isEmpty ? "Field should not be empty" : null;
-                },),
+                },) : SizedBox(height: 0,),
 
                 SizedBox(height: 20,),
 
