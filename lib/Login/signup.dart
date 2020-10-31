@@ -163,7 +163,7 @@ class _SignUpState extends State<SignUp> {
 
                 clickedSignUpBtn == false ? CustomButton(
                   onPressed: (){
-                    SignUpForm();
+                    signUp();
                   },
                   label: "Sign Up",
                   color: red,

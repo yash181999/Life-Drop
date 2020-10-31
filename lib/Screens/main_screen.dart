@@ -5,7 +5,6 @@ import 'package:versionbeta3/Profile/edit_profile.dart';
 import 'package:versionbeta3/Profile/settings.dart';
 import 'package:versionbeta3/Screens/all_requests/all_requests.dart';
 import 'package:versionbeta3/Screens/all_requests/recent_chats.dart';
-import 'package:versionbeta3/Screens/request_screen.dart';
 import 'package:versionbeta3/Screens/search_screen.dart';
 import 'package:versionbeta3/Screens/story.dart';
 import 'package:versionbeta3/color/color.dart';
