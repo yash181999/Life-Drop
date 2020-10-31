@@ -42,9 +42,7 @@ dependencies:
   shared_preferences: ^0.5.8
   pin_code_fields: ^5.2.0
   image_picker:
-  permission_handler: ^5.0.1+1
-
-
+  keyboard_visibility: ^0.5.6
 
 
 

@@ -48,7 +48,7 @@ class _ListOfBloodDonarsState extends State<ListOfBloodDonars> {
       appBar: AppBar(
         backgroundColor: white,
         title: Text(
-            "Blood Donars",
+            "Blood Donors",
              style: TextStyle(
                color: black,
              ),
@@ -152,7 +152,7 @@ class _ListOfBloodDonarsState extends State<ListOfBloodDonars> {
               }
             ) :Center(
               child: Container(
-                child: Text("NO DONAR FOUND"),
+                child: Text("NO DONOR FOUND"),
               ),
             );
           }

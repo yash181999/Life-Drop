@@ -16,7 +16,7 @@ class _SettingsPageState extends State<SettingsPage> {
         elevation: 1,
         leading: IconButton(
           onPressed: () {
-            Navigator.of(context).pop();
+            //Navigator.of(context).pop();
           },
           icon: Icon(
             Icons.arrow_back,
@@ -103,7 +103,8 @@ class _SettingsPageState extends State<SettingsPage> {
                     style: TextStyle(
                         fontSize: 16, letterSpacing: 2.2, color: Colors.black)),
               ),
-            )
+            ),
+            SizedBox(height: 30,)
           ],
         ),
       ),
