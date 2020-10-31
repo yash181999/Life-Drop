@@ -40,4 +40,28 @@ class DatabaseService {
       return userData;
     });
   }
+
+
+  Future<dynamic> saveUserDetailsFireStore({String userId, String name, String phoneNumber, String aadharNumber, String address, String city, String state, DateTime dateOfBirth}) async{
+
+    try{
+
+      await db.collection("Users").document(userId).updateData({
+          'Name' : name,
+          'phoneNumber' : phoneNumber,
+          'aadharNumber' : aadharNumber,
+          'address' : address,
+          'city' : city,
+          'state' : state,
+      }).whenComplete(() {
+        print("Data Added");
+      }).catchError((error){
+         print(error);
+      });
+
+    }catch(e){
+      return e;
+    }
+
+  }
 }

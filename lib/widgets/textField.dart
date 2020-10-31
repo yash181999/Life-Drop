@@ -10,6 +10,7 @@ class CustomTextField extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(5),
       child: TextFormField(
+
         validator: validator,
         controller: controller,
         obscureText: showHideText,

@@ -40,6 +40,10 @@ dependencies:
   geocoder: ^0.2.1
   flutter_tts: ^1.2.6
   shared_preferences: ^0.5.8
+  pin_code_fields: ^5.2.0
+  flutter_otp: ^0.3.2
+
+
 
 dev_dependencies:
   flutter_test:

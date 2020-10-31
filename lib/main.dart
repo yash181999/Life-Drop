@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:versionbeta3/Login/signup_form.dart';
 import 'package:versionbeta3/Screens/main_screen.dart';
-import 'package:versionbeta3/Screens/request_screen.dart';
-import 'package:versionbeta3/Screens/search_screen.dart';
+import 'package:versionbeta3/color/color.dart';
 void main() {
   runApp(MyApp());
 }
@@ -15,9 +15,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
 
-        primarySwatch: Colors.blue,
+        primaryColor: red,
       ),
-      home: Search_screen(),
+      home: SignUpForm(),
     );
   }
 }

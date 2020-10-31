@@ -128,7 +128,7 @@ class _LoginState extends State<Login> {
 
                 },
                 type: TextInputType.visiblePassword,
-                showHideText : showPassword ? true : false,
+                showHideText : showPassword ? false : true,
                 icon: GestureDetector(
                   child: Icon(
                     showPassword ? Icons.visibility : Icons.visibility_off
@@ -167,7 +167,7 @@ class _LoginState extends State<Login> {
                 labelColor: white,
                 color: red,
 
-              ) : CircularProgressIndicator(),
+              ) : Container(alignment : Alignment.center,child: CircularProgressIndicator()),
 
 
               SizedBox(height: 30,),
@@ -200,11 +200,7 @@ class _LoginState extends State<Login> {
                 labelColor: white,
                 label: "EMERGENCY",
 
-              )
-
-
-
-
+              ),
 
            ],
           ),
