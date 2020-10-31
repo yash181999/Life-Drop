@@ -130,7 +130,7 @@ class _ReceivedRequestsState extends State<ReceivedRequests> {
                                     ),),
                                   ),
 
-                                 doc['status'] == 'notAccepted'  ?  RaisedButton(
+                                 doc['status'] == 'notAccepted' && doc['status'] != 'accepted'  ?  RaisedButton(
                                     onPressed: (){
                                       rejectRequest(docId: doc.documentID);
                                     },
