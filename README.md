@@ -1,16 +1,22 @@
-# versionbeta3
+ # VersionBeta3
+Presenting **LifeDrop** : Flutter application to connect blood/plasma donors with receiver.
 
-A new Flutter application.
+<br />
+<img src="https://user-images.githubusercontent.com/60983778/97785070-d8d24480-1bc8-11eb-9de5-4b628da15a06.jpg" alt="Logo" width="900" height="400" >
 
-## Getting Started
+## About The Project : LifeDrop
 
-This project is a starting point for a Flutter application.
+Our aim is to provide a comprehensive mobile application which helps public to get connected with blood donors.
+An android application where user can have all of the basic requirements on their fingertips. Search and sort people by blood group, location, Integrated with Chat feature and Agora Real time Voice Communication.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Here's why:
+* Need of an app to connect the public to the blood donors.
+* Features that will provide ease access to user.
+* App which focuses on highlighting the Hyperlocal filtering.
+* Enabled with Spam protection and Privacy-focused.:smile:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Built With
+Our Hybrid application is ready to serve in all platforms i.e. from android to ios and web.
+
+
