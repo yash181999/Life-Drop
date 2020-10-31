@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_otp/flutter_otp.dart';
 import 'package:versionbeta3/Login/uploadDocument.dart';
 import 'package:versionbeta3/Login/verification_code_screen.dart';
 import 'package:versionbeta3/color/color.dart';
@@ -17,7 +16,6 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
 
-  FlutterOtp otp = FlutterOtp();
 
   DatabaseService databaseService = DatabaseService();
 

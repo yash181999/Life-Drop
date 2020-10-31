@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_otp/flutter_otp.dart';
 import 'package:versionbeta3/Screens/main_screen.dart';
 import 'package:versionbeta3/color/color.dart';
 import 'package:versionbeta3/widgets/red_button.dart';

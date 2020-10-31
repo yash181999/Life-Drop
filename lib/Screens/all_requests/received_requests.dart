@@ -8,6 +8,10 @@ class ReceivedRequests extends StatefulWidget {
 class _ReceivedRequestsState extends State<ReceivedRequests> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Container(
+        child: Text("Requests"),
+      ),
+    );
   }
 }
