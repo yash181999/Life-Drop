@@ -61,7 +61,7 @@ class _RecentChatsState extends State<RecentChats> {
 
               itemBuilder: (context, index) {
                 DocumentSnapshot doc = snapshot.data.documents[index];
-                return snapshot.hasData && doc['sentBy'] == userId ? Column(
+                return snapshot.hasData && (doc['sentBy'] == userId || doc['sentTo'] == userId) ? Column(
                   children: [
                     InkWell(
                       onTap: (){
