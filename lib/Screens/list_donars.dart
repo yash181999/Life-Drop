@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:versionbeta3/color/color.dart';
+import 'package:versionbeta3/database/auth.dart';
+
+import 'chat.dart';
 
 class ListOfBloodDonars extends StatefulWidget {
 
@@ -129,7 +132,11 @@ class _ListOfBloodDonarsState extends State<ListOfBloodDonars> {
                               ),
 
                               RaisedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushReplacement(context, MaterialPageRoute(
+                                    builder: (context) => Chat(docId: doc.documentID,userId: widget.userId,name: doc['Name'],)
+                                  ));
+                                },
                                 color: red,
                                 child: Text(
                                   'Chat',

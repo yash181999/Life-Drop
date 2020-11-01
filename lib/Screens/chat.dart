@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:versionbeta3/color/color.dart';
+import 'package:versionbeta3/database/auth.dart';
 
 class Chat extends StatefulWidget {
   final docId, userId,name;
@@ -76,23 +77,21 @@ class _ChatState extends State<Chat> {
           children: <Widget>[
             Flexible(
                 child: StreamBuilder(
-                  stream: Firestore.instance.collection("Chats").document(widget.userId+"_"+widget.docId).collection("chat").orderBy("timeStamp", descending  :true).
-                  where("sentBy", isEqualTo: widget.userId).
-                  where("sentTo", isEqualTo: widget.docId).snapshots(),
+                  stream: Firestore.instance.collection("Chats").document(widget.userId+"_"+widget.docId).collection("chat").orderBy("timeStamp", descending  :true).snapshots(),
 
                   builder: (context, snapshot) {
-                    return snapshot.hasData ? ListView.builder(
+                    return snapshot.hasData  ? ListView.builder(
                         reverse: true,
                         itemCount: snapshot.data.documents.length,
                         itemBuilder: (context, index) {
 
                           DocumentSnapshot documentSnapShot = snapshot.data.documents[index];
 
-                          return documentSnapShot['sentBy'] == widget.userId ?  chat(
-                             documentSnapShot['message'], 0
-                          ): chat(
-                            documentSnapShot['message'], 1,
-                          );
+                          return  documentSnapShot['sentBy'] == widget.userId && documentSnapShot['sentTo'] == widget.docId ?  chat(
+                             documentSnapShot['message'], 1
+                          ) : documentSnapShot['sentTo'] == widget.userId && documentSnapShot['sentBy'] == widget.docId ? chat(
+                            documentSnapShot['message'], 0,
+                          ): Container();
                         }
                     ) : Container();
                   }
@@ -134,7 +133,6 @@ class _ChatState extends State<Chat> {
                           if (messageInsert.text.isEmpty) {
                             print("empty message");
                           } else {
-                            sendMessage(message : messageInsert.text);
                             sendMessage(message : messageInsert.text);
                             messageInsert.clear();
                           }

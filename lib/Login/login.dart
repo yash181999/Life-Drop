@@ -47,8 +47,8 @@ class _LoginState extends State<Login> {
 
 
 
-      print(result);
-      if(result!=null) {
+
+      if(user!=null) {
 
         saveDataToSharedPrefStorage(user.uid);
 
@@ -56,6 +56,9 @@ class _LoginState extends State<Login> {
         Navigator.pushReplacement(context,  MaterialPageRoute(
             builder:  (context) => MainScreen()
         ));
+      }
+      else{
+        print("Wrong email or password");
       }
 
     }
