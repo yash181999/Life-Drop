@@ -51,39 +51,55 @@ class _StoryState extends State<Story> {
       ),
 
 
-        body: Container(
-           padding: EdgeInsets.symmetric(horizontal: 15 , vertical: 15),
-           width: MediaQuery.of(context).size.width,
-          child: Column(
-             children: [
-               GestureDetector(
-                 onTap: () {
-                   Navigator.push(context, MaterialPageRoute(builder: (context) => ChatBot()));
-                 },
-                 child: Container(
-                   width: MediaQuery.of(context).size.width,
-                   decoration: BoxDecoration(
-                     color: white,
-                     boxShadow: [BoxShadow(color:Colors.black12,blurRadius: 10,offset: Offset(0.0,0.0),)],
-                     borderRadius: BorderRadius.circular(20),
-                     image: DecorationImage(
-                       fit: BoxFit.cover,
-                       image: AssetImage('assets/undraw_chat_bot_kli5.png'),
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Container(
+             padding: EdgeInsets.symmetric(horizontal: 15 , vertical: 15),
+             width: MediaQuery.of(context).size.width,
+            child: Column(
+               children: [
+                 GestureDetector(
+                   onTap: () {
+                     Navigator.push(context, MaterialPageRoute(builder: (context) => ChatBot()));
+                   },
+                   child: Container(
+                     width: MediaQuery.of(context).size.width,
+                     decoration: BoxDecoration(
+                       color: white,
+                       boxShadow: [BoxShadow(color:Colors.black12,blurRadius: 10,offset: Offset(0.0,0.0),)],
+                       borderRadius: BorderRadius.circular(20),
+                       image: DecorationImage(
+                         fit: BoxFit.cover,
+                         image: AssetImage('assets/undraw_chat_bot_kli5.png'),
+                       ),
                      ),
-                   ),
-                   height: 200,
-                   child: Center(
-                     child: Text(
-                       "Health Bot",
-                       style: TextStyle(
-                         color: Colors.white,
-                         fontSize: 20
+                     height: 200,
+                     child: Center(
+                       child: Text(
+                         "Health Bot",
+                         style: TextStyle(
+                           color: Colors.white,
+                           fontSize: 20
+                         ),
                        ),
                      ),
                    ),
                  ),
-               ),
-          ],
+
+                 SizedBox(height: 10,),
+                 PostCard(imgurl: "assets/2.png", desc: "plaease donate blood",),
+
+                 SizedBox(height: 10,),
+                 PostCard(imgurl: "assets/2.png", desc: "donate blood",),
+
+                 SizedBox(height: 10,),
+                 PostCard(imgurl: "assets/2.png", desc: "world blood donate day",)
+
+
+
+
+            ],
+            ),
           ),
         ),
     );

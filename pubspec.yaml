@@ -66,6 +66,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+       - assets/2.png
        - assets/undraw_chat_bot_kli5.png
        - assets/blooddonor-294218-1468031223dd.json
 
