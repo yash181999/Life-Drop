@@ -3,6 +3,7 @@ import 'package:versionbeta3/Login/login.dart';
 import 'package:versionbeta3/Screens/all_requests/all_requests.dart';
 import 'package:versionbeta3/Screens/main_screen.dart';
 import 'package:versionbeta3/Screens/search_screen.dart';
+import 'package:versionbeta3/Screens/story.dart';
 void main() {
   runApp(MyApp());
 }

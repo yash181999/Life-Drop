@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:keyboard_visibility/keyboard_visibility.dart';
 import 'package:versionbeta3/Profile/edit_profile.dart';
-import 'package:versionbeta3/Profile/settings.dart';
+import 'file:///F:/Bloodapp/Beta3_ZipBots/lib/Screens/all_requests/settings.dart';
 import 'package:versionbeta3/Screens/all_requests/all_requests.dart';
 import 'package:versionbeta3/Screens/all_requests/recent_chats.dart';
 import 'package:versionbeta3/Screens/search_screen.dart';
