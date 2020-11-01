@@ -64,7 +64,7 @@ class _MyRequestsState extends State<MyRequests> {
 
                                   Container(
                                     child: Text(
-                                      doc['name'],
+                                      doc['namePatient'],
                                       style: TextStyle(
                                           fontFamily: 'sf_pro_bold',
                                           fontSize: 18

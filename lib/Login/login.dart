@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:versionbeta3/Login/signup.dart';
 import 'package:versionbeta3/Screens/main_screen.dart';
@@ -17,6 +18,9 @@ class _LoginState extends State<Login> {
 
   bool showPassword = false;
 
+  FirebaseAuth _firebaseAuth  = FirebaseAuth.instance;
+
+
   AuthService _auth = new AuthService();
   DatabaseService databaseService = new DatabaseService();
   final emailTEC = TextEditingController();
@@ -34,13 +38,19 @@ class _LoginState extends State<Login> {
         clickedLoginBtn = true;
       });
 
-      dynamic result = await _auth.signInUserWithEmailAndPassword(emailTEC.text, passwordTEC.text);
 
 
+      dynamic result = await _firebaseAuth.signInWithEmailAndPassword(email: emailTEC.text, password: passwordTEC.text);
+
+
+      FirebaseUser user  = result.user;
+
+
+
+      print(result);
       if(result!=null) {
-        dynamic userData = await databaseService.getUserDataFromFireStore(userId: result.toString());
 
-        saveDataToSharedPrefStorage(userName: userData['name'], userId: result.toString(), profilePhoto: userData['profilePic']);
+        saveDataToSharedPrefStorage(user.uid);
 
 
         Navigator.pushReplacement(context,  MaterialPageRoute(
@@ -51,11 +61,10 @@ class _LoginState extends State<Login> {
     }
   }
 
-  void saveDataToSharedPrefStorage({String userName, String userId, String profilePhoto}) async {
+  void saveDataToSharedPrefStorage( String userId) async {
     await AuthService.saveUserIdSharedPref(userId);
-    await  AuthService.saveUserNameSharedPref(userName);
+
     await AuthService.saveUserLoggedInSharedPref(true);
-    await AuthService.saveProfilePhotoSharedPref(profilePhoto);
   }
 
   @override
@@ -76,7 +85,6 @@ class _LoginState extends State<Login> {
       ),
 
       body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
         child: Container(
           padding: EdgeInsets.all(10),
           child: Form(
@@ -98,8 +106,8 @@ class _LoginState extends State<Login> {
 
                 //email field
                 CustomTextField(
-                  label : "Email/Phone",
-                  hint : "Email/Phone",
+                  label : "Email",
+                  hint : "Email",
                   controller: emailTEC,
                   validator: (val) {
                     if(val.isEmpty) {
@@ -124,7 +132,7 @@ class _LoginState extends State<Login> {
                       return "Password Is Empty";
                     }
                     if(val.length < 8) {
-                      return 'Password must of at least 6 characters';
+                      return 'Password must of at least 8 characters';
                     }
                     return null;
 

@@ -24,7 +24,11 @@ class AuthService {
           email: email, password: password);
 
       FirebaseUser user  = result.user;
-      await databaseService.createUserInDatabase(email: email,userId:user.uid,name: name,profilePic: 'null',phone: phone);
+      await databaseService.createUserInDatabase(email: email,
+          userId:user.uid,name: name,
+          profilePic: 'null',
+          phone: phone);
+
       await saveUserNameSharedPref(name);
       await saveUserIdSharedPref(user.uid);
       return user.uid;

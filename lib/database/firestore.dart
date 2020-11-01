@@ -35,8 +35,8 @@ class DatabaseService {
     List<String> userData;
 
     await db.collection("Users").document(userId).get().then((value) {
-      userData.add(value.data['name']);
-      userData.add(value.data['profilePic']);
+      userData.add(value.data['Name']);
+      userData.add(value.data['email']);
       return userData;
     });
   }
@@ -53,6 +53,8 @@ class DatabaseService {
           'address' : address,
           'city' : city,
           'state' : state,
+          'dateOfBirth': dateOfBirth,
+
       }).whenComplete(() {
         print("Data Added");
       }).catchError((error){

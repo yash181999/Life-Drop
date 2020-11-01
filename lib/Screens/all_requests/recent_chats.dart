@@ -52,9 +52,7 @@ class _RecentChatsState extends State<RecentChats> {
       body: Container (
         child: StreamBuilder(
           stream: Firestore.instance.collection("Chats").
-             orderBy("timeStamp",descending: true).
-          where("sentBy",isEqualTo: userId).
-          where("sentTo",isEqualTo: userId).snapshots(),
+             orderBy("timeStamp",descending: true).snapshots(),
 
           builder: (context, snapshot) {
             return snapshot.hasData ? ListView.builder(
@@ -63,7 +61,7 @@ class _RecentChatsState extends State<RecentChats> {
 
               itemBuilder: (context, index) {
                 DocumentSnapshot doc = snapshot.data.documents[index];
-                return snapshot.hasData ? Column(
+                return snapshot.hasData && doc['sentBy'] == userId ? Column(
                   children: [
                     InkWell(
                       onTap: (){
