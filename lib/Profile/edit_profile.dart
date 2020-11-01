@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'file:///F:/Bloodapp/Beta3_ZipBots/lib/Screens/all_requests/settings.dart';
 import 'package:versionbeta3/color/color.dart';
 
 class SettingsUI extends StatelessWidget {
@@ -40,8 +39,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
               color: red,
             ),
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => SettingsPage()));
+
             },
           ),
         ],

@@ -68,7 +68,7 @@ class _RecentChatsState extends State<RecentChats> {
                         Navigator.push(context, MaterialPageRoute(
                           builder: (context) => Chat(
                             userId: userId,
-                            docId: doc["sentTo"],
+                            docId: doc["sentBy"],
                             name: doc['name'],
                           ),
                         ));

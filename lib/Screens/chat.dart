@@ -14,25 +14,43 @@ class Chat extends StatefulWidget {
   _ChatState createState() => _ChatState();
 }
 
+
 class _ChatState extends State<Chat> {
 
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    checkForChat();
+  }
 
   final messageInsert = TextEditingController();
   List<Map> messages = List();
 
+  String docId = "";
 
+  checkForChat() async{
+    setState(() {
+      docId = widget.userId + "_" + widget.docId;
+    });
+    String anotherDocId = widget.docId + "_" + widget.userId;
 
-  sendMessage({String message}) async{
-    String docId = widget.userId + "_" + widget.docId;
+    await Firestore.instance.collection("Chats").getDocuments().then((value) {
 
-    await Firestore.instance.collection("Chats").document(docId).setData({
-       "timeStamp" : Timestamp.now(),
-        "sentBy" : widget.userId,
-        "sentTo" : widget.docId,
-       "name" : widget.name,
-       'lastMessage' : messageInsert.text,
+      for(int i=0;i<value.documents.length;i++) {
+        if(value.documents[i].documentID == anotherDocId){
+          setState(() {
+            docId = anotherDocId;
+          });
+        }
+      }
+
 
     });
+  }
+
+  sendMessage({String message}) async{
+    checkForChat();
 
     await Firestore.instance.collection("Chats").document(docId).collection("chat").document().setData({
 
@@ -41,6 +59,7 @@ class _ChatState extends State<Chat> {
          "message" : message,
          "timeStamp" : Timestamp.now(),
          "sentByName" : widget.name,
+
 
     });
   }
@@ -77,7 +96,7 @@ class _ChatState extends State<Chat> {
           children: <Widget>[
             Flexible(
                 child: StreamBuilder(
-                  stream: Firestore.instance.collection("Chats").document(widget.userId+"_"+widget.docId).collection("chat").orderBy("timeStamp", descending  :true).snapshots(),
+                  stream: Firestore.instance.collection("Chats").document(docId).collection("chat").orderBy("timeStamp", descending  :true).snapshots(),
 
                   builder: (context, snapshot) {
                     return snapshot.hasData  ? ListView.builder(
@@ -87,11 +106,10 @@ class _ChatState extends State<Chat> {
 
                           DocumentSnapshot documentSnapShot = snapshot.data.documents[index];
 
-                          return  documentSnapShot['sentBy'] == widget.userId && documentSnapShot['sentTo'] == widget.docId ?  chat(
+                           if( documentSnapShot['sentBy'] == widget.userId )  return chat(
                              documentSnapShot['message'], 1
-                          ) : documentSnapShot['sentTo'] == widget.userId && documentSnapShot['sentBy'] == widget.docId ? chat(
-                            documentSnapShot['message'], 0,
-                          ): Container();
+                          ); else if(documentSnapShot['sentTo'] == widget.userId) return chat(documentSnapShot['message'],0);
+                          return Container();
                         }
                     ) : Container();
                   }

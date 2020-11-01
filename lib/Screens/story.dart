@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:photofilters/filters/image_filters.dart';
+
 import 'package:versionbeta3/Screens/chatbot.dart';
 import 'package:versionbeta3/color/color.dart';
-import 'package:photofilters/photofilters.dart';
+
 class Story extends StatefulWidget {
   @override
   _StoryState createState() => _StoryState();
