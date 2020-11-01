@@ -75,134 +75,137 @@ class _LoginState extends State<Login> {
         ),
       ),
 
-      body: Container(
-        padding: EdgeInsets.all(10),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: EdgeInsets.all(20),
-                child: Text(
-                  "Welcome Back!",
-                   style: TextStyle(
-                     fontSize: 30,
-                     color: black,
-                     fontFamily: 'sf_pro_bold'
-                   ),
-                ),
-              ),
-
-              //email field
-              CustomTextField(
-                label : "Email/Phone",
-                hint : "Email/Phone",
-                controller: emailTEC,
-                validator: (val) {
-                  if(val.isEmpty) {
-                    return "Email is empty";
-                  }
-                  if(!RegExp(r"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$").hasMatch(val)) {
-                    return "Invalid Email";
-                  }
-                  return null;
-                },
-                type: TextInputType.emailAddress,
-              ),
-
-              //password field
-              CustomTextField(
-                label: "Password",
-                hint: "Password",
-                controller: passwordTEC,
-                validator: (val) {
-
-                  if(val.isEmpty) {
-                    return "Password Is Empty";
-                  }
-                  if(val.length < 8) {
-                    return 'Password must of at least 6 characters';
-                  }
-                  return null;
-
-                },
-                type: TextInputType.visiblePassword,
-                showHideText : showPassword ? false : true,
-                icon: GestureDetector(
-                  child: Icon(
-                    showPassword ? Icons.visibility : Icons.visibility_off
-                  ),
-                  onTap: (){
-                    setState(() {
-                        showPassword = !showPassword;
-                    });
-                  },
-                ),
-
-              ),
-
-
-              InkWell(
-                onTap: (){
-                  forgotPassword();
-                },
-                child: Container(
-                    padding: EdgeInsets.all(5),
-                    child: Text("Forgot Password ?")
-                ),
-              ),
-
-
-              SizedBox(
-                height: 30,
-              ),
-
-             clickedLoginBtn == false ?  CustomButton(
-
-                onPressed: (){
-                  login();
-                },
-                label: "LOGIN",
-                labelColor: white,
-                color: red,
-
-              ) : Container(alignment : Alignment.center,child: CircularProgressIndicator()),
-
-
-              SizedBox(height: 30,),
-
-              InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => SignUp(),
-                  ));
-                },
-                child: Container(
-                  alignment: Alignment.center,
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Container(
+          padding: EdgeInsets.all(10),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(20),
                   child: Text(
-                    "Don't have a account? Sign up",
-                    style: TextStyle(
-                      fontSize: 16,
+                    "Welcome Back!",
+                     style: TextStyle(
+                       fontSize: 30,
+                       color: black,
+                       fontFamily: 'sf_pro_bold'
+                     ),
+                  ),
+                ),
+
+                //email field
+                CustomTextField(
+                  label : "Email/Phone",
+                  hint : "Email/Phone",
+                  controller: emailTEC,
+                  validator: (val) {
+                    if(val.isEmpty) {
+                      return "Email is empty";
+                    }
+                    if(!RegExp(r"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$").hasMatch(val)) {
+                      return "Invalid Email";
+                    }
+                    return null;
+                  },
+                  type: TextInputType.emailAddress,
+                ),
+
+                //password field
+                CustomTextField(
+                  label: "Password",
+                  hint: "Password",
+                  controller: passwordTEC,
+                  validator: (val) {
+
+                    if(val.isEmpty) {
+                      return "Password Is Empty";
+                    }
+                    if(val.length < 8) {
+                      return 'Password must of at least 6 characters';
+                    }
+                    return null;
+
+                  },
+                  type: TextInputType.visiblePassword,
+                  showHideText : showPassword ? false : true,
+                  icon: GestureDetector(
+                    child: Icon(
+                      showPassword ? Icons.visibility : Icons.visibility_off
+                    ),
+                    onTap: (){
+                      setState(() {
+                          showPassword = !showPassword;
+                      });
+                    },
+                  ),
+
+                ),
+
+
+                InkWell(
+                  onTap: (){
+                    forgotPassword();
+                  },
+                  child: Container(
+                      padding: EdgeInsets.all(5),
+                      child: Text("Forgot Password ?")
+                  ),
+                ),
+
+
+                SizedBox(
+                  height: 30,
+                ),
+
+               clickedLoginBtn == false ?  CustomButton(
+
+                  onPressed: (){
+                    login();
+                  },
+                  label: "LOGIN",
+                  labelColor: white,
+                  color: red,
+
+                ) : Container(alignment : Alignment.center,child: CircularProgressIndicator()),
+
+
+                SizedBox(height: 30,),
+
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => SignUp(),
+                    ));
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Don't have a account? Sign up",
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
-              ),
 
 
-              SizedBox(height: 20,),
+                SizedBox(height: 20,),
 
 
-              CustomButton(
+                CustomButton(
 
-                onPressed: (){},
-                color: Colors.red,
-                labelColor: white,
-                label: "EMERGENCY",
+                  onPressed: (){},
+                  color: Colors.red,
+                  labelColor: white,
+                  label: "EMERGENCY",
 
-              ),
+                ),
 
-           ],
+             ],
+            ),
           ),
         ),
       ),
