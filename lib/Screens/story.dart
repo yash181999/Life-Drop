@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:photofilters/filters/image_filters.dart';
+import 'package:versionbeta3/Screens/chatbot.dart';
 import 'package:versionbeta3/color/color.dart';
-
+import 'package:photofilters/photofilters.dart';
 class Story extends StatefulWidget {
   @override
   _StoryState createState() => _StoryState();
@@ -50,25 +52,80 @@ class _StoryState extends State<Story> {
 
 
         body: Container(
-           padding: EdgeInsets.symmetric(horizontal: 10 , vertical: 10),
+           padding: EdgeInsets.symmetric(horizontal: 15 , vertical: 15),
            width: MediaQuery.of(context).size.width,
           child: Column(
              children: [
-               Container(
-                 decoration: BoxDecoration(
-                   color: white,
-                   boxShadow: [BoxShadow(color:Colors.black12,blurRadius: 10,offset: Offset(0.0,0.0),)],
-                   borderRadius: BorderRadius.circular(20),
-                   image: DecorationImage(
-                     image: AssetImage(),
+               GestureDetector(
+                 onTap: () {
+                   Navigator.push(context, MaterialPageRoute(builder: (context) => ChatBot()));
+                 },
+                 child: Container(
+                   width: MediaQuery.of(context).size.width,
+                   decoration: BoxDecoration(
+                     color: white,
+                     boxShadow: [BoxShadow(color:Colors.black12,blurRadius: 10,offset: Offset(0.0,0.0),)],
+                     borderRadius: BorderRadius.circular(20),
+                     image: DecorationImage(
+                       fit: BoxFit.cover,
+                       image: AssetImage('assets/undraw_chat_bot_kli5.png'),
+                     ),
+                   ),
+                   height: 200,
+                   child: Center(
+                     child: Text(
+                       "Health Bot",
+                       style: TextStyle(
+                         color: Colors.white,
+                         fontSize: 20
+                       ),
+                     ),
                    ),
                  ),
-                 height: 30,
-                 child: ,
-               )
-             ],
+               ),
+          ],
           ),
         ),
+    );
+  }
+}
+
+
+class PostCard extends StatelessWidget {
+  String imgurl , desc;
+  PostCard({this.imgurl , this.desc});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              color: white,
+              boxShadow: [BoxShadow(color:Colors.black12,blurRadius: 10,offset: Offset(0.0,0.0),)],
+              borderRadius: BorderRadius.circular(20),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage('$imgurl'),
+              ),
+            ),
+            height: 200,
+          ),
+          SizedBox(height: 10),
+          Container(
+            alignment: Alignment.bottomLeft,
+            child: Text(
+              "$desc",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
