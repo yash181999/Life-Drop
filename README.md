@@ -1,4 +1,4 @@
- # VersionBeta3
+ # VersionBeta3 Hackathon Blood Donation App
 Presenting **LifeDrop** : Flutter application to connect blood/plasma donors with receiver.
 
 <br />
@@ -17,6 +17,6 @@ Here's why:
 * Enabled with Spam protection and Privacy-focused.:smile:
 
 ### Built With
-Our Hybrid application is ready to serve in all platforms i.e. from android to ios and web.
+Our Hybrid application is ready to serve in all platforms i.e. from android to ios and web built with Flutter
 
 
